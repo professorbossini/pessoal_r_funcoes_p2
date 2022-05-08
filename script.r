@@ -117,4 +117,42 @@ sub("a", "*", "Ana Maria")
 ?gsub
 #An* M*ri*
 gsub("a", "*", "Ana Maria")
+##################################################
+#Funções lógicas
+x <- c(T, F)
+y <- c(T, T)
+z <- c(F, F)
+#alguém resulta em TRUE?
+#TRUE
+any(x)
+#TRUE
+any(y)
+#FALSE
+any(z)
 
+#todos resultam em T?
+#FALSE
+all(x)
+#T
+all(y)
+#F
+all(z)
+#################################################################
+#Exercícios resolvidos
+#################################################################
+#1. Abra o arquivo cancer.txt como um data frame e faça um sumário estatístico dos dados.
+arq <- read.table(file = "cancer.txt", header = T);arq
+#################################################################
+#2. Faça o histograma das variáveis LDH, ALB e N. Use a descrição da coluna como título de cada um. Use cores diferentes.
+#parâmetro para os gráficos
+#disposição de uma linha e três coluna (mfrow: posicionamento da esquerda para a direita. Se usar mfcol: posicionamento de cima para baixo)
+par(mfrow = c(1,3))
+
+hist(arq[, 'LDH'], main = 'Enzima, lactate dehydrogenase', xlab = 'LDH', ylab = 'frequência absoluta', col = 'red')
+
+hist(arq[, 'ALB'], main = 'Albumina', xlab = 'ALB', ylab = 'frequência absoluta', col = 'blue')
+
+hist(arq[, 'N'], main = 'Nitrogênio na uréia', xlab = 'N', ylab = 'frequência absoluta', col = 'green')
+
+#volta configurações de gráfico ao normal
+par(mfrow = c(1, 1))
