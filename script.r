@@ -30,4 +30,14 @@ setdiff(c(1, 2), c(1, 3))
 is.element(c(1), c(1, 2))
 #TRUE FALSE FALSE
 is.element(c(1, 2, 3), c(1))
-  
+##################################################
+#funções estatísticas
+x <- 1:5;x
+#média
+mean(x)
+#desvio padrão
+sd(x)
+#correlação
+cor(x, x)#1
+cor ((1:100)^2, log(1:100)) #0.77
+cor (c(1, 2, 3), c (10, 53, 4)) #-0.11
