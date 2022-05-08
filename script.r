@@ -156,3 +156,18 @@ hist(arq[, 'N'], main = 'Nitrogênio na uréia', xlab = 'N', ylab = 'frequência
 
 #volta configurações de gráfico ao normal
 par(mfrow = c(1, 1))
+
+#3. Médicos afirmam que o grupo dos falso-positivos é mais jovem do que o dos falso negativos. O que você diria a respeito? Justifique sua resposta baseando-se em gráficos e medidas de tendência central.
+par(mfrow = c(1, 2))
+#idade de falsos positivos
+boxplot(arq[arq$Grupo==4, 'Idade'], main = 'Falso positivo', ylab = 'Idade', col = 'lightblue')
+#idade de falsos negativos
+boxplot(arq[arq$Grupo==1, 'Idade'], main = 'Falso negativo', ylab = 'Idade', col = 'lightgreen')
+par(mfrow = c(1, 1))
+#pelos boxplots, vemos que a mediana de falso negativos é maior do que a de falsos positivos
+#resumo de idade de falsos positivos
+summary(arq[arq$Grupo==4, 'Idade']) #Média: 50.94
+summary(arq[arq$Grupo==1, 'Idade']) #Média: 53.27
+#Observe que tanto mediana quanto média de falsos negativos é maior
+#Assim os falsos positivos são mais jovens
+
