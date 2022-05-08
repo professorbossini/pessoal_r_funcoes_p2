@@ -156,7 +156,7 @@ hist(arq[, 'N'], main = 'Nitrogênio na uréia', xlab = 'N', ylab = 'frequência
 
 #volta configurações de gráfico ao normal
 par(mfrow = c(1, 1))
-
+#################################################################
 #3. Médicos afirmam que o grupo dos falso-positivos é mais jovem do que o dos falso negativos. O que você diria a respeito? Justifique sua resposta baseando-se em gráficos e medidas de tendência central.
 par(mfrow = c(1, 2))
 #idade de falsos positivos
@@ -170,4 +170,17 @@ summary(arq[arq$Grupo==4, 'Idade']) #Média: 50.94
 summary(arq[arq$Grupo==1, 'Idade']) #Média: 53.27
 #Observe que tanto mediana quanto média de falsos negativos é maior
 #Assim os falsos positivos são mais jovens
+#################################################################
+#4. Compare a glicose dos pacientes falso positivos e dos falso negativos. Para 
+#isso, use a média, a mediana, a variância e o desvio padrão. O que você conclui?
+#glicose de falsos positivos
+gfp <- arq[arq$Grupo==4, 'GL'];gfp
+#glicose de falsos negativos
+gfn <- arq[arq$Grupo==1, 'GL'];gfn
 
+#resultado
+sfp <- sprintf('Resultados\nMédia(gfp): %.2f\nMédia(gfn): %.2f\nMediana(gfp): %.2f\nMediana(gfn): %.2f\nVariância(gfp): %.2f\nVariância(gfn): %.2f\nDesvio padrão(gfp): %.2f\nDesvio padrão(gfn): %.2f\n', mean(gfp), mean(gfn), median(gfp), median(gfn), var(gfp), var(gfn), sd(gfp), sd(gfn))
+
+#para pular linha com \n
+cat(sfp)
+print ("Falsos positivos têm nível de glicose maior, bem como maior variabilidade")
