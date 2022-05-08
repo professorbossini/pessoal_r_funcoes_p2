@@ -41,3 +41,20 @@ sd(x)
 cor(x, x)#1
 cor ((1:100)^2, log(1:100)) #0.77
 cor (c(1, 2, 3), c (10, 53, 4)) #-0.11
+##################################################
+#funções probabilísticas
+?runif
+#vinte observações no intervalo de 0 a 10, distribuição uniforme
+#random uniform
+runif(20000000, min=0, max=10)
+#vinte observações, distribuição normal
+rnorm(20, mean=0, sd=10)
+?sample
+#uma permutação envolvendo o intervalo 1:5
+sample(5)
+#permutação intervalo 1:10
+sample(1:10)
+#com reposição
+sample(1:10, replace=T)
+#especificando quantidade, com reposição
+sample(1:100, 6, replace=T)
