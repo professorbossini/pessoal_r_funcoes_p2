@@ -58,3 +58,63 @@ sample(1:10)
 sample(1:10, replace=T)
 #especificando quantidade, com reposição
 sample(1:100, 6, replace=T)
+##################################################
+x <- "Hello, Strings"
+y <- "Análise de dados"
+#número de caracteres de cada string
+nchar(c(x,y))
+#quebra usando um símbolo especificado
+strsplit(c(x, y), split = " ")
+#substring
+#ell
+substr(x, start=2, stop=4)
+#e
+substr(x, start=2, stop=2)
+#cadeia vazia
+substr(x, start=2, stop=1)
+#se start=0, começa do 1 mesmo assim
+substr(x, start=0, stop=5)
+#qualquer valor negativo faz começar do 1
+substr(x, start=-1, stop=2)
+substr(x, start=-12, stop=2)
+?chartr
+#substituição de caracteres
+#tr: translate
+#Hello, StringS
+chartr('hs', 'HS', 'hello, strings')
+?strtrim
+#recebe um vetor e um valor inteiro de "width"
+#normal para o nosso alfabeto, por exemplo
+strtrim("ABC", 2)
+#width é a largura
+#em japonês, por exemplo, há caracteres de
+#全角: largura completa
+#半角: metade do tamanho
+#Esse é um half width: ﾣ
+#Esse é um full width: ￥
+#mostra ﾣ pois ele é half width 
+strtrim('ﾣ', 1)
+#mostra a cadeia vazia pois ele é full width
+strtrim('￥', 1)
+#mostra ￥
+strtrim('￥', 2)
+
+#letras maiúsculas e minúsculas
+toupper('Hello, Strings')
+tolower("Hello, Strings")
+#Title Case
+tools::toTitleCase('josé da silva')
+#também dá pra fazer assim
+library(tools)
+toTitleCase("maria silva")
+
+#busca padrões baseados em expressões regulares
+?sub
+#substitui somente o primeiro da esquerda para a direita
+#An* Maria
+sub("a", "*", "Ana Maria")
+#globalsub: substitui todos
+?gsub
+#An* M*ri*
+gsub("a", "*", "Ana Maria")
+
