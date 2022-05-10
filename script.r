@@ -269,3 +269,16 @@ summary(arq)
 #################################################################
 #8. Como você pode verificar, com certeza, se há algum valor NA no arquivo cancer.txt?
 any (is.na(arq))
+#################################################################
+#9. Qual a menor idade comum aos 4 grupos de diagnósticos?
+#calcula a intersecção (elementos em comum)
+intersect(c(1, 2), c(1, 3))
+#não dá para passar mais de dois, veja:
+intersect (c(1, 2), c(1, 3), c(1, 3))
+#calculamos dois a dois, então
+#n e fp são negativo (negativo e falso positivo são negativos, certo?)
+idades_falsos <- intersect (idade_n, idade_fp);idades_falsos
+idades_verdadeiros <- intersect (idade_p, idade_fn);idades_verdadeiros
+idades_comuns <- intersect (idades_falsos, idades_verdadeiros); idades_comuns
+#acha o mínimo
+menor_idade_comum <- min(idades_comuns);menor_idade_comum
