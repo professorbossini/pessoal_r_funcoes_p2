@@ -302,6 +302,16 @@ nchar(cidades)
 nchar(cidades)==max(nchar(cidades))
 #pega as cidades de maior comprimento
 cidades[nchar(cidades)==max(nchar(cidades))]
-
+#################################################################
 #11. Qual(is) cidade(s) contém a letra x no nome (maiúscula ou minúscula)?
 cidades[grep('x', tolower(cidades))]
+#################################################################
+#12. Qual o tamanho médio dos nomes das cidades?
+
+#################################################################
+#13. Substituia o(s) espaço(s) das cidades que tem nome composto pelo caractere 
+# "_" (underscore).
+
+#################################################################
+#14 Codifique os nomes das cidades trocando 'iceasptbgo' por '1234567890'. Tanto
+#faz se o caracter é maiúsculo ou minúsculo.
