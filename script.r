@@ -282,3 +282,23 @@ idades_verdadeiros <- intersect (idade_p, idade_fn);idades_verdadeiros
 idades_comuns <- intersect (idades_falsos, idades_verdadeiros); idades_comuns
 #acha o mínimo
 menor_idade_comum <- min(idades_comuns);menor_idade_comum
+#################################################################
+#precipitação: em meteorologia refere-se a qualquer tipo de queda dágua do céu
+#nuvem, chuva e chuvem de granizo
+#precipitação pluviométrica: queda de chuva
+#Um dos datasets padrão do R é o precip, que contém os dados de precipitação 
+#pluviométrica de várias cidades americanas. Este dataset é um vetor nomeado. 
+#Para os próximos exercícios carregue os índices deste vetor nomeado para uma 
+#variável.
+?precip
+precip
+#aqui estamos mexendo apenas com os nomes
+cidades <- names(precip);cidades
+
+#10. Qual a cidade com o nome mais longo?
+#comprimento de cada cidade
+nchar(cidades)
+#vetor de booleanos. somente as cidades de maior comprimento têm valor true
+nchar(cidades)==max(nchar(cidades))
+#pega as cidades de maior comprimento
+cidades[nchar(cidades)==max(nchar(cidades))]
