@@ -252,4 +252,17 @@ df_idade
 #lembre que os positivos incluem falso_negativos e positivo de fato
 # assim como os negativos são os falso_positivos e negativos de fato
 
+#7. Crie uma amostra aleatória do arquivo câncer.txt com 100 linhas e faça o sumário de medidas de posição. Compare as medidas de posição da variável Idade da amostra com as medidas de posição da variável Idade do conjunto completo. O que você observa?
+#medidas de posição: media, mediana e quartis
+#medidas de dispersão: variância e desvio padrão
+
+#100 identificadores aleatórios
+sample(arq$Ident, 100)
+#vetor de booleanos que indica quais idents estão na amostra e quais não estão
+is.element(arq$Ident, sample(arq$Ident, 100))
+#pegamos as 100 observações aleatórias
+arq100 <- arq[is.element(arq$Ident, sample(arq$Ident, 100)), ];arq100
+#mostra medidas de posição (media, mediana e quartis para cada variável)
+summary(arq100)
+summary(arq)
 
