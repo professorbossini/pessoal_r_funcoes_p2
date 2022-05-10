@@ -184,3 +184,72 @@ sfp <- sprintf('Resultados\nMédia(gfp): %.2f\nMédia(gfn): %.2f\nMediana(gfp): 
 #para pular linha com \n
 cat(sfp)
 print ("Falsos positivos têm nível de glicose maior, bem como maior variabilidade")
+#################################################################
+#5. Obtenha as medidas de posição e variabilidade para a variável Idade do conjunto 
+#de dados como um todo. #faça um teste com arq['Idade'] para ver o problema qdo o retorno é um data frame
+#tipo é dataframe
+arq['Idade']
+class(arq['Idade'])
+#não dá
+mean(arq['Idade'])
+#class é integer
+class(arq[,'Idade'])
+#assim dá
+mean(arq[,'Idade'])
+#assim também dá
+idade_tot <- arq$Idade;idade_tot
+#class também é integer com essa notação
+class(idade_tot)
+s_idade_total <- sprintf (
+    "Média: %.2f\nMediana: %.2f\nVariância: %.2f\nDesvio Padrão: %.2f\n",
+    mean(idade_tot),
+    median(idade_tot),
+    var(idade_tot),
+    sd(idade_tot)
+)
+#exibe \n literal
+print(s_idade_total)
+#\n pula linha
+cat(s_idade_total)
+#################################################################
+#6. Faça o mesmo do exercício 5, mas agora para cada tipo de diagnóstico. Compare os resultados obtidos. Construa um data frame para facilitar a visualização e a comparação
+#a ideia é montar um dataframe assim:
+#             total falso_negativo, negativo, positivo, falso_positivo
+#media            1               2 e assim por diante
+#mediana
+#variância
+#desvio padrão
+#FN: 1
+#N: 2
+#P: 3
+#FP: 4
+#pegamos os conjuntos
+idade_fn <- arq[arq$Grupo==1, 'Idade']
+idade_n <- arq[arq$Grupo==2, 'Idade']
+idade_p <- arq[arq$Grupo==3, 'Idade']
+idade_fp <- arq[arq$Grupo==4, 'Idade']
+idade_tot <- arq[, 'Idade']
+
+#linha (vetor) para as medidas de todos
+v_tot <- c(mean (idade_tot), median (idade_tot), var(idade_tot), sd(idade_tot));v_tot
+#linha (vetor) para cada subconjunto
+v_fn <- c(mean(idade_fn), median (idade_fn), var(idade_fn), sd (idade_fn));v_fn
+v_n <- c(mean(idade_n), median(idade_n), var(idade_n), sd(idade_n));v_n
+v_p <- c(mean(idade_p), median(idade_p), var(idade_p), sd(idade_p));v_p
+v_fp <- c(mean(idade_fp), median(idade_fp), var(idade_fp), sd(idade_fp));v_fp
+#titulos das linhas
+v_linhas <- c("média", "mediana", "variância", "desvio padrão");v_linhas
+#dataframe
+df_idade <- data.frame(
+              total=v_tot, 
+              falso_negativo=v_fn, 
+              negativo=v_n, 
+              positivo=v_p, 
+              falso_positivo=v_fp,
+              row.names = v_linhas
+            );
+df_idade
+#lembre que os positivos incluem falso_negativos e positivo de fato
+# assim como os negativos são os falso_positivos e negativos de fato
+
+
