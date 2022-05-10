@@ -294,7 +294,7 @@ menor_idade_comum <- min(idades_comuns);menor_idade_comum
 precip
 #aqui estamos mexendo apenas com os nomes
 cidades <- names(precip);cidades
-
+#################################################################
 #10. Qual a cidade com o nome mais longo?
 #comprimento de cada cidade
 nchar(cidades)
@@ -302,3 +302,6 @@ nchar(cidades)
 nchar(cidades)==max(nchar(cidades))
 #pega as cidades de maior comprimento
 cidades[nchar(cidades)==max(nchar(cidades))]
+
+#11. Qual(is) cidade(s) contém a letra x no nome (maiúscula ou minúscula)?
+cidades[grep('x', tolower(cidades))]
